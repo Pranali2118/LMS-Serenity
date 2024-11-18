@@ -22,4 +22,6 @@ public class WaitFor implements Interaction {
     public static WaitFor alertToBePresent() {
         return Tasks.instrumented(WaitFor.class);
     }
+
+
 }
