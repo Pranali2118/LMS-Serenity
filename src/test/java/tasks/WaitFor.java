@@ -17,6 +17,7 @@ public class WaitFor implements Interaction {
         WebDriver driver = ThucydidesWebDriverSupport.getDriver();
         WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
         wait.until(ExpectedConditions.alertIsPresent());
+
     }
 
     public static WaitFor alertToBePresent() {

@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.is;
 public class ApplyWorkingDayLeave {
 
     @And("The student applies working day leave by entering the details in the form The leave should be applied successfully")
-    public void theStudentAppliesWorkingDayLeaveByEnteringTheDetailsInTheFormTheLeaveShouldBeAppliedSuccessfully() {
+    public void theStudentAppliesWorkingDayLeaveByEnteringTheDetailsInTheFormTheLeaveShouldBeAppliedSuccessfully()  {
         theActorInTheSpotlight().attemptsTo(Click.on(LeavePage.APPLY_WORK_LEAVE_CARD), // Click on the leave card
                 FillOutLeaveForm.withDetails(
                         "Sirisha", // Example Name
@@ -26,6 +26,7 @@ public class ApplyWorkingDayLeave {
                         "Home inogration", // Reason
                         "1976"// studentid
                 ),
+
                 Click.on(LeavePage.SUBMIT_BUTTON) // Submit the leave request
         );
 

@@ -5,7 +5,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
-import static org.openqa.selenium.By.*;
+
+
 
 public class NavigateTo implements Task {
     private String url;
@@ -16,7 +17,11 @@ public class NavigateTo implements Task {
 
     @Step("{0} navigates to the application URL")
     public <T extends Actor> void performAs(T actor) {
+
         actor.attemptsTo(Open.url(url));
+        actor.attemptsTo(MaximizeBrowser.window());
+
+
     }
 
     public static NavigateTo theApplication(String url) {
