@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import models.LeavePage;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Scroll;
 import questions.LeaveFormSubmission;
 import tasks.FillOutLeaveForm;
 
@@ -26,7 +27,7 @@ public class ApplyWorkingDayLeave {
                         "Home inogration", // Reason
                         "1976"// studentid
                 ),
-
+                Scroll.to(LeavePage.SUBMIT_BUTTON).andAlignToBottom(),
                 Click.on(LeavePage.SUBMIT_BUTTON) // Submit the leave request
         );
 
