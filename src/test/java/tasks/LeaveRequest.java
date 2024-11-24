@@ -26,11 +26,11 @@ public class LeaveRequest implements Task {
 
         Target ScrollElement = role.equalsIgnoreCase("Warden")
                 ? Target.the("Warden Scroller").locatedBy("/html/body/div/table/tbody/tr[11]/td[6]/a/button")
-                : Target.the("Hod Scroller").locatedBy("/html/body/div/table/tbody/tr[11]/td[7]/a/button");
+                : Target.the("Hod Scroller").locatedBy("/html/body/div/table/tbody/tr[9]/td[7]/a/button");
 
         Target UpdateButton = role.equalsIgnoreCase("Warden")
                 ? Target.the("Warden Update button").locatedBy("/html/body/div/table/tbody/tr[11]/td[6]/a/button")
-                : Target.the("Hod Update button").locatedBy("/html/body/div/table/tbody/tr[11]/td[7]/a/button");
+                : Target.the("Hod Update button").locatedBy("/html/body/div/table/tbody/tr[9]/td[7]/a/button");
 
         Target InputUpdate = role.equalsIgnoreCase("Warden")
                 ? Target.the("Warden Update leave field").locatedBy("/html/body/div/section/div/div/div/div/div/div/form/div[6]/input")
@@ -42,7 +42,6 @@ public class LeaveRequest implements Task {
 
         actor.attemptsTo(
                 Click.on(LeaveRequestButton),
-
                 Scroll.to(ScrollElement).andAlignToBottom(),
                 Click.on(UpdateButton),
                 Clear.field(InputUpdate),
