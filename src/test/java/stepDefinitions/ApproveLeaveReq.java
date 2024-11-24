@@ -23,16 +23,24 @@ public class ApproveLeaveReq  {
         theActorInTheSpotlight().attemptsTo(LeaveRequest.ClickLeaveRequest(role));
     }
 
-    @Then("The User should be able to update the status")
-    public void theUserShouldBeAbleToUpdateTheStatus() throws InterruptedException {
-//        String statusXpath = "/html/body/div/table/tbody/tr[9]/td[5]/p";
-//        Awaitility.await().atMost(30, TimeUnit.SECONDS)
-//                .until(() -> Text.of(By.xpath(statusXpath)).answeredBy(theActorInTheSpotlight()).equals("Approved"));
+    @Then("The User role {string} should be able to update the status")
+    public void theUserShouldBeAbleToUpdateTheStatus(String role) throws InterruptedException {
 
-        Scroll.to("/html/body/div/table/tbody/tr[9]/td[6]/p").andAlignToBottom();
-        theActorInTheSpotlight().should(
-                seeThat(Text.of(By.xpath("/html/body/div/table/tbody/tr[9]/td[6]/p")), equalTo("Approved"))
-        );
+        if(role.equals("hod"))
+        {
+            Scroll.to("/html/body/div/table/tbody/tr[last()]/td[6]/p").andAlignToBottom();
+            theActorInTheSpotlight().should(
+                    seeThat(Text.of(By.xpath("/html/body/div/table/tbody/tr[last()]/td[6]/p")), equalTo("Approved"))
+            );
+        }
+        else
+        {
+            Scroll.to("/html/body/div/table/tbody/tr[last()]/td[5]/p").andAlignToBottom();
+            theActorInTheSpotlight().should(
+                    seeThat(Text.of(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/p")), equalTo("Approved"))
+            );
+        }
+
     //  System.out.println(Text.of(By.xpath("/html/body/div/table/tbody/tr[11]/td[5]/p")));
     }
 }

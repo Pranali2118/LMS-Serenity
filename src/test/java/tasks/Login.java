@@ -50,14 +50,19 @@ public class Login implements Task {
                 : Target.the("HOD login button").locatedBy("//html/body/div/section/div[1]/div/div[2]/form/button");
 
 
-        actor.attemptsTo(
-                Click.on(loginButton),
-                Enter.theValue(username).into(usernameField),
-                Enter.theValue(password).into(passwordField),
-                Click.on(submitButton),
-                WaitFor.alertToBePresent(),
-                ClickOnAlert.accept()
-        );
+        try {
+            actor.attemptsTo(
+                    Click.on(loginButton),
+                    Enter.theValue(username).into(usernameField),
+                    Enter.theValue(password).into(passwordField),
+                    Click.on(submitButton),
+                    WaitFor.waiting(),
+                    WaitFor.alertToBePresent(),
+                    ClickOnAlert.accept()
+            );
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static Login withCredentials(String role,String username, String password) {

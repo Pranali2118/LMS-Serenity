@@ -4,9 +4,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = {"src/test/resources/features/01_applyworkleave.feature",
+                "src/test/resources/features/02_WarddenAprroceeReq.feature",
+                "src/test/resources/features/03_HodReqAprrove.feature"},
         glue = "stepDefinitions",
-        tags = "@LeaveRequest",
         monochrome = true,
         plugin = {"pretty"}
 )
